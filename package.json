@@ -1,0 +1,17 @@
+{
+  "name": "prism",
+  "version": "1.0.0",
+  "description": "Tracking application for elected and candidate officials.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Perez",
+  "license": "ISC",
+  "engines": {
+    "node": "6.2.0"
+  },
+  "devDependencies": {
+    "jslint": "^0.10.3"
+  }
+}
