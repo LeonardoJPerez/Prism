@@ -1,21 +1,22 @@
 {
-  "name": "prism",
-  "version": "1.0.0",
-  "description": "Tracking application for elected and candidate officials.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --debug .\\src\\init\\server.js"
-  },
-  "author": "Leonardo Perez",
-  "license": "ISC",
-  "engines": {
-    "node": "6.2.0"
-  },
-  "devDependencies": {
-    "jslint": "^0.10.3"
-  },
-  "dependencies": {
-    "hapi": "^16.1.0"
-  }
+    "name": "prism",
+    "version": "1.0.0",
+    "description": "Tracking application for elected and candidate officials.",
+    "main": ".\\src\\init\\server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "nodemon --debug .\\src\\init\\server.js",
+        "start": "npm run serve"
+    },
+    "author": "Leonardo Perez",
+    "license": "ISC",
+    "engines": {
+        "node": "6.2.0"
+    },
+    "devDependencies": {
+        "jslint": "^0.10.3"
+    },
+    "dependencies": {
+        "hapi": "^16.1.0"
+    }
 }
