@@ -20,8 +20,20 @@ module.exports = {
     {
         method: 'GET',
         path: '/member/{bid}',
-        handler: function (request, reply) {           
+        handler: function (request, reply) {
             membersService.getMembersByBioguideId(request.params.bid)
+                .then((res) => {
+                    reply(JSON.stringify(res, null, 4));
+                }, (error) => {
+                    reply(JSON.stringify(error, null, 4));
+                });
+        }
+    },
+    {
+        method: 'GET',
+        path: '/member/search',
+        handler: function (request, reply) {            
+            membersService.searchMembersByString(request.query.query)
                 .then((res) => {
                     reply(JSON.stringify(res, null, 4));
                 }, (error) => {

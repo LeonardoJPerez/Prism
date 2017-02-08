@@ -4,7 +4,8 @@
   "description": "Tracking application for elected and candidate officials.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --debug .\\src\\init\\server.js"
   },
   "author": "Leonardo Perez",
   "license": "ISC",

@@ -32,5 +32,20 @@ module.exports = {
                     }
                 });
         });
+    },
+    searchMembersByString: (searchString) => {
+        return new Promise((fulfill, reject) => {
+            var apiUrl = `https://congress.api.sunlightfoundation.com/legislators?query=${searchString}`;
+            var Request = unirest.get(apiUrl);
+            Request
+                .header('Accept', 'application/json')
+                .end((response) => {
+                    if (response.status === 200) {
+                        fulfill(response.body.results);
+                    } else {
+                        reject(response.error);
+                    }
+                });
+        });
     }
 }
