@@ -9,4 +9,3 @@ locationService.getLocationCoordinates('30328')
             });
     });
 
-
