@@ -2,12 +2,11 @@
 
 var utils = require('./../../common/utils');
 
+const baseUrl = config.api.congress.url;
+
 module.exports = {
-    getLocationCoordinates: (zipcode) => {
-        let apiUrl = `http://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&sensor=false`;
-        return utils.executeRequest(apiUrl)
-            .then((res) => {
-                return res.results[0];
-            });
+    getBills: () => {
+        let apiUrl = `${baseUrl}/districts/locate?latitude=${location.lat}&longitude=${location.lng}`;
+        return utils.executeRequest(apiUrl);
     }
 }

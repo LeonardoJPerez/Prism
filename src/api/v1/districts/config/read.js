@@ -1,4 +1,5 @@
 'use strict';
+
 const locationService = require('./../../../../services/location');
 const districtsService = require('./../../../../services/districts');
 
