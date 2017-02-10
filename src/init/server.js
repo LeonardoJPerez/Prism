@@ -1,14 +1,15 @@
 'use strict';
 
+const config = require('./../../config');
 const Hapi = require('hapi');
+const routes = require('./routes');
 
 const server = new Hapi.Server();
 server.connection({
-    host: 'localhost',
-    port: 8831
+    host: config.server.host,
+    port: config.server.port
 });
 
-var routes = require('./routes');
 routes.handlers.forEach((route) => {
     server.route(route);
 });

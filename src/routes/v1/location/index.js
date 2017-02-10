@@ -1,4 +1,6 @@
-var locationService = require('./../../../services/location');
+'use strict';
+
+const locationService = require('./../../../services/location');
 
 module.exports = {
     routes: [{
