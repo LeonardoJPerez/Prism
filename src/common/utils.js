@@ -11,7 +11,7 @@ module.exports = {
                 .header(config.api.congress.header)
                 .end((response) => {
                     if (response.status === 200) {
-                        fulfill(response.body.results);
+                        fulfill(response.body);
                     } else {
                         reject(response.error);
                     }

@@ -8,8 +8,8 @@ exports.register = function (server, options, next) {
     server.route([
         {
             method: 'GET',
-            path: options.basePath + '/bills',
-            config: require('./config/read').get
+            path: options.basePath + '/location/{zipcode}',
+            config: require('./config/read').getLocation
         }
     ]);
 
@@ -17,6 +17,6 @@ exports.register = function (server, options, next) {
 };
 
 exports.register.attributes = {
-    name: 'bill',
+    name: 'location',
     version: '1.0.0'
 };

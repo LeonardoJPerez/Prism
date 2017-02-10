@@ -1,16 +1,21 @@
 'use strict';
 
-var utils = require('./../../common/utils');
-var config = require('./../../../config');
+const utils = require('./../../common/utils');
+const config = require('./../../../config');
+
+const baseUrl = config.api.congress.url;
 
 module.exports = {
     getMembersByLocation: (location) => {
-        return utils.executeRequest(`${config.api.congress.url}/legislators/locate?latitude=${location.lat}&longitude=${location.long}`);
+        let apiUrl = `${baseUrl}/legislators/locate?latitude=${location.lat}&longitude=${location.lng}`;
+        return utils.executeRequest(apiUrl);
     },
     getMembersByBioguideId: (bid) => {
-        return utils.executeRequest(`${config.api.congress.url}/legislators?bioguide_id=${bid}&all_legislators=true`);
+        let apiUrl = `${baseUrl}/legislators?bioguide_id=${bid}&all_legislators=true`;
+        return utils.executeRequest(apiUrl);
     },
     searchMembersByString: (searchString) => {
-        return utils.executeRequest(`${config.api.congress.url}/legislators?query=${searchString}`);
+        let apiUrl = `${baseUrl}/legislators?query=${searchString}`;
+        return utils.executeRequest(apiUrl);
     }
-}
+};
