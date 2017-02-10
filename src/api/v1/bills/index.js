@@ -12,11 +12,11 @@ exports.register = function (server, options, next) {
             config: require('./config/read').getBills
         }
     ]);
-
+    
     next();
 };
 
 exports.register.attributes = {
-    name: 'bill',
+    name: 'bills',
     version: '1.0.0'
 };

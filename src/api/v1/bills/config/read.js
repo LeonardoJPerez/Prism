@@ -7,7 +7,12 @@ module.exports = {
         validate: {},
         pre: [],
         handler: (request, reply) => {
-            billsService.getBills();
+            billsService.getBills()
+                .then((res) => {
+                    reply(JSON.stringify(res.results, null, 4));
+                }, (error) => {
+                    reply(JSON.stringify(error, null, 4));
+                });
         }
     }
 }
