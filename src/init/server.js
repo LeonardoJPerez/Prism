@@ -1,28 +1,39 @@
 'use strict';
 
-const config = require('./../../config');
-const Hapi = require('hapi');
-const routes = require('./routes');
+const Glue = require('glue');
 
-const server = new Hapi.Server();
-server.connection({
-    host: config.server.host,
-    port: config.server.port
-});
+const manifest = {
+    connections: [
+        {
+            port: 8031,
+            host: 'localhost',
+            labels: ['api']
+        }     
+    ],
+    registrations: [
+        {
+            plugin: {
+                register: './../routes/v1/bills',
+                options: {
+                    basePath: '/v1',
+                    select: ['api'],
+                    uglify: true
+                }
+            }
+        }
+    ]
+};
 
-routes.handlers.forEach((route) => {
-    server.route(route);
-});
-
-server.start((err) => {
+Glue.compose(manifest, { relativeTo: __dirname }, (err, server) => {
     if (err) {
         throw err;
     }
-
-    console.log(`Server running at: ${server.info.uri}`);
-    console.log('Available routes:');
-    var info = server.table()[0];
-    info.table.forEach((route) => {
-        console.log('\t', route.public.path, '\t', route.public.method.toUpperCase());
+    server.start((err) => {
+        console.log(`Server running at: ${server.connections[0].info.uri}`);
+        console.log('Available routes:');
+        var info = server.table()[0];
+        info.table.forEach((route) => {
+            console.log('\t', route.public.path, '\t', route.public.method.toUpperCase());
+        });
     });
 });
