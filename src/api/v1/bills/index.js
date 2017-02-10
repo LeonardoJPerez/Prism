@@ -10,9 +10,14 @@ exports.register = function (server, options, next) {
             method: 'GET',
             path: options.basePath + '/bills',
             config: require('./config/read').getBills
+        },
+        {
+            method: 'GET',
+            path: options.basePath + '/bills/active',
+            config: require('./config/read').getActiveBills
         }
     ]);
-    
+
     next();
 };
 
